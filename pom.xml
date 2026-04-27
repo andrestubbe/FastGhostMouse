@@ -111,8 +111,8 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/andrestubbe/ghostmouse.git</connection>
-        <developerConnection>scm:git:ssh://github.com:andrestubbe/ghostmouse.git</developerConnection>
-        <url>https://github.com/andrestubbe/ghostmouse/tree/main</url>
+        <connection>scm:git:git://github.com/andrestubbe/FastGhostMouse.git</connection>
+        <developerConnection>scm:git:ssh://github.com:andrestubbe/FastGhostMouse.git</developerConnection>
+        <url>https://github.com/andrestubbe/FastGhostMouse/tree/main</url>
     </scm>
 </project>

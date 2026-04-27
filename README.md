@@ -1,4 +1,4 @@
-# FastGhostMouse v4.0 (DirectComposition Edition) 🚀
+# FastGhostMouse v0.4.0 (DirectComposition Edition) 🚀
 
 **FastGhostMouse** is a high-performance, GPU-accelerated secondary mouse overlay for Windows. Built for the **FastJava** ecosystem, it provides an ultra-smooth (120Hz+), click-through, and focus-agnostic "Secondary Mouse" that can be used for AI cursor visualization, butler assistance, or UI indicators.
 

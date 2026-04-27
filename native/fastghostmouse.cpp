@@ -1,5 +1,13 @@
-// fastghostmouse.cpp
-// UpdateLayeredWindow Approach for Transparent Overlay with GDI+
+/**
+ * @file FastGhostMouse.cpp
+ * @brief FastGhostMouse native implementation
+ *
+ * @details Implements high-performance native overlay with Direct2D and 120Hz support.
+ *
+ * @author FastJava Team
+ * @version 4.0.0
+ * @copyright MIT License
+ */
 #define UNICODE
 #define _UNICODE
 #include <windows.h>
