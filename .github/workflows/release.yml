@@ -1,0 +1,43 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+    
+    - name: Build native DLL (FastGhostMouse)
+      run: |
+        mkdir build
+        mkdir -p src/main/resources/native
+        cl.exe /LD /std:c++20 /O2 /EHsc /Fe:build\fastghostmouse.dll native\FastGhostMouse.cpp ^
+          /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" ^
+          user32.lib gdi32.lib gdiplus.lib msimg32.lib d3d11.lib d2d1.lib dcomp.lib ^
+          /link /DEF:native\fastghostmouse.def
+        copy build\fastghostmouse.dll src\main\resources\native\
+    
+    - name: Build JAR with bundled DLL
+      run: mvn -B package -DskipTests
+    
+    - name: Upload Release Assets
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          target/fastghostmouse-*.jar
+        name: Release ${{ github.ref_name }}
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
