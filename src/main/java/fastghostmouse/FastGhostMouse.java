@@ -18,8 +18,8 @@ import java.awt.image.BufferedImage;
  * and shown/hidden on demand.
  * </p>
  *
- * @since 3.0.0
- * @version 3.0.0
+ * @since 0.4.0
+ * @version 0.4.0
  * @author FastJava Team
  */
 public class FastGhostMouse {
