@@ -1,7 +1,8 @@
-# FastGhostMouse — High-Performance GPU-Accelerated Secondary Mouse Overlay
+# FastGhostMouse — [ALPHA] High-Performance GPU-Accelerated Secondary Mouse Overlay
 
 **⚡ Ultra-smooth, 120Hz secondary mouse for Java applications — hardware-accelerated via DirectComposition.**
 
+[![Status](https://img.shields.io/badge/status-ALPHA-orange.svg)]()
 [![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
 [![Java](https://img.shields.io/badge/Java-17+-blue.svg)](https://www.java.com)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010+-lightgrey.svg)]()
@@ -123,6 +124,12 @@ By moving visuals via **Hardware Offsets** instead of CPU redraws, we achieve pe
 | Windows 10 | ✅ Full support | GPU-accelerated DirectComposition |
 | Linux | ❌ Not planned | |
 | macOS | ❌ Not planned | |
+
+---
+
+## Build from Source
+
+See [COMPILE.md](COMPILE.md) for detailed build instructions.
 
 ---
 

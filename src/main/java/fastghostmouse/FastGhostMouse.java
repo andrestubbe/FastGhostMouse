@@ -76,34 +76,60 @@ public class FastGhostMouse {
     }
 
     /**
+     * Helper to show a premium "Butler" status bubble next to the cursor.
+     * This draws a sleek, semi-transparent rounded rectangle with white text.
+     * 
+     * @param text The message to display (e.g. "Thinking...", "Found it!")
+     */
+    public void setButlerBubble(String text) {
+        if (text == null || text.isEmpty()) {
+            setTextImage(null);
+            return;
+        }
+
+        // Measure text for auto-sizing
+        BufferedImage measure = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = measure.createGraphics();
+        g2.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        FontMetrics fm = g2.getFontMetrics();
+        int textW = fm.stringWidth(text);
+        int textH = fm.getHeight();
+        g2.dispose();
+
+        int paddingX = 15;
+        int paddingY = 10;
+        int bubbleW = textW + (paddingX * 2);
+        int bubbleH = textH + (paddingY * 2);
+
+        setStatusVisual(bubbleW + 10, bubbleH + 10, g -> {
+            g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+            // Shadow
+            g.setColor(new Color(0, 0, 0, 80));
+            g.fillRoundRect(4, 4, bubbleW, bubbleH, 15, 15);
+
+            // Bubble background (Sleek Dark Graphite)
+            g.setColor(new Color(30, 30, 30, 220));
+            g.fillRoundRect(0, 0, bubbleW, bubbleH, 15, 15);
+
+            // Border
+            g.setColor(new Color(255, 255, 255, 40));
+            g.drawRoundRect(0, 0, bubbleW, bubbleH, 15, 15);
+
+            // Text
+            g.setFont(new Font("Segoe UI", Font.BOLD, 14));
+            g.setColor(Color.WHITE);
+            g.drawString(text, paddingX, paddingY + fm.getAscent());
+        });
+    }
+
+    /**
      * Sets a high-quality status text to be displayed next to the secondary mouse.
      * @param text The text to display.
      */
     public void setStatusText(String text) {
-        if (text == null || text.isEmpty()) {
-            setTextImage(null, 0, 0);
-            return;
-        }
-
-        // Use the new Visual Painter for the text logic
-        Font font = new Font("Segoe UI", Font.BOLD, 14);
-        BufferedImage temp = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g0 = temp.createGraphics();
-        g0.setFont(font);
-        FontMetrics fm = g0.getFontMetrics();
-        int w = fm.stringWidth(text) + 20;
-        int h = fm.getHeight() + 10;
-        g0.dispose();
-
-        setStatusVisual(w, h, g -> {
-            g.setFont(font);
-            // Shadow
-            g.setColor(new Color(0, 0, 0, 150));
-            g.drawString(text, 11, fm.getAscent() + 6);
-            // Text
-            g.setColor(Color.WHITE);
-            g.drawString(text, 10, fm.getAscent() + 5);
-        });
+        setButlerBubble(text);
     }
 
     /**

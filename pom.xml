@@ -7,7 +7,7 @@
 
     <groupId>io.github.andrestubbe</groupId>
     <artifactId>fastghostmouse</artifactId>
-    <version>1.0.0</version>
+    <version>0.4.0-ALPHA</version>
     <packaging>jar</packaging>
 
     <name>fastghostmouse</name>

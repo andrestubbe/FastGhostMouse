@@ -1,6 +1,6 @@
 # Changelog
 
-## [4.0.0] - 2026-04-27
+## [0.4.0-ALPHA] - 2026-04-27
 ### Added
 - **Direct2D Rendering Engine**: Replaced GDI+ with hardware-accelerated Direct2D for ultra-smooth pixel rendering.
 - **120Hz Refresh Rate Support**: Upgraded the animation loop to 8ms (~125Hz) for high-refresh-rate gaming monitors.
