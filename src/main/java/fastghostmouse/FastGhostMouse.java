@@ -24,8 +24,11 @@ import java.awt.image.BufferedImage;
  */
 public class FastGhostMouse {
     static {
+        System.out.println("Loading fastghostmouse library...");
         FastCore.loadLibrary("fastghostmouse");
+        System.out.println("Library loaded, calling registerNatives...");
         registerNatives();
+        System.out.println("registerNatives completed");
     }
 
     private static native void registerNatives();
@@ -39,12 +42,83 @@ public class FastGhostMouse {
      * invisible in taskbar.
      * </p>
      *
-     * @param width  Initial width parameter (currently unused, window covers full screen)
-     * @param height Initial height parameter (currently unused, window covers full screen)
+     * @param startX Initial X position
+     * @param startY Initial Y position
      * @see #show()
      * @see #dispose()
      */
-    public native void init(int width, int height);
+    /**
+     * Sets a custom visual next to the mouse by providing a drawing routine.
+     * Use this for icons, progress bars, or complex multi-line UI.
+     *
+     * @param width The width of the visual area.
+     * @param height The height of the visual area.
+     * @param painter A consumer that receives a Graphics2D to draw the visual.
+     */
+    public void setStatusVisual(int width, int height, java.util.function.Consumer<Graphics2D> painter) {
+        if (painter == null || width <= 0 || height <= 0) {
+            setTextImage(null, 0, 0);
+            return;
+        }
+
+        BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = img.createGraphics();
+        
+        // Premium Defaults
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        g.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
+
+        painter.accept(g);
+        
+        g.dispose();
+        setTextImage(img);
+    }
+
+    /**
+     * Sets a high-quality status text to be displayed next to the secondary mouse.
+     * @param text The text to display.
+     */
+    public void setStatusText(String text) {
+        if (text == null || text.isEmpty()) {
+            setTextImage(null, 0, 0);
+            return;
+        }
+
+        // Use the new Visual Painter for the text logic
+        Font font = new Font("Segoe UI", Font.BOLD, 14);
+        BufferedImage temp = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g0 = temp.createGraphics();
+        g0.setFont(font);
+        FontMetrics fm = g0.getFontMetrics();
+        int w = fm.stringWidth(text) + 20;
+        int h = fm.getHeight() + 10;
+        g0.dispose();
+
+        setStatusVisual(w, h, g -> {
+            g.setFont(font);
+            // Shadow
+            g.setColor(new Color(0, 0, 0, 150));
+            g.drawString(text, 11, fm.getAscent() + 6);
+            // Text
+            g.setColor(Color.WHITE);
+            g.drawString(text, 10, fm.getAscent() + 5);
+        });
+    }
+
+    /**
+     * Sets the text visual from a BufferedImage.
+     * @param img The image to use for text.
+     */
+    public void setTextImage(BufferedImage img) {
+        if (img == null) {
+            setTextImage(null, 0, 0);
+            return;
+        }
+        setTextImage(toRGBA(img), img.getWidth(), img.getHeight());
+    }
+
+    public native void init(int startX, int startY);
 
     /**
      * Moves the ghost cursor to the specified coordinates.
@@ -100,6 +174,14 @@ public class FastGhostMouse {
      * @param dy Y offset from cursor
      */
     public native void setTextOffset(float dx, float dy);
+    
+    /**
+     * Captures the current Windows system cursor and sets it as the ghost cursor image.
+     * <p>
+     * This ensures the ghost cursor matches the user's system theme and scaling exactly.
+     * </p>
+     */
+    public native void captureSystemCursor();
 
     /**
      * Shows the ghost cursor overlay.
@@ -111,7 +193,20 @@ public class FastGhostMouse {
      * @see #hide()
      * @see #init(int, int)
      */
+    public native void setSmoothing(float factor);
     public native void show();
+    
+    /**
+     * Sets whether the system mouse cursor is visible.
+     * <p>
+     * Hides or shows the real Windows system cursor globally.
+     * Use this during demos to ensure only the ghost cursor is visible.
+     * The cursor is automatically restored when {@link #dispose()} is called.
+     * </p>
+     * 
+     * @param visible true to show the system cursor, false to hide it
+     */
+    public native void setSystemCursorVisible(boolean visible);
 
     /**
      * Hides the ghost cursor overlay.
@@ -230,5 +325,49 @@ public class FastGhostMouse {
         BufferedImage img = renderText(text);
         byte[] rgba = toRGBA(img);
         setTextImage(rgba, img.getWidth(), img.getHeight());
+    }
+
+    /**
+     * Sets the ghost cursor to a standard arrow shape.
+     *
+     * @param scale Scaling factor (e.g., 2 for 200% DPI)
+     */
+    public void setToStandardCursor(int scale) {
+        int size = 32 * scale;
+        BufferedImage cursorImg = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = cursorImg.createGraphics();
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+        Polygon arrow = new Polygon();
+        arrow.addPoint(0 * scale, 0 * scale);
+        arrow.addPoint(0 * scale, 20 * scale);
+        arrow.addPoint(5 * scale, 15 * scale);
+        arrow.addPoint(10 * scale, 25 * scale);
+        arrow.addPoint(13 * scale, 23 * scale);
+        arrow.addPoint(8 * scale, 14 * scale);
+        arrow.addPoint(15 * scale, 14 * scale);
+
+        g.setColor(Color.WHITE);
+        g.fill(arrow);
+        g.setColor(Color.BLACK);
+        g.setStroke(new BasicStroke(1.5f * scale));
+        g.draw(arrow);
+        g.dispose();
+
+        setCursorImage(cursorImg);
+    }
+
+    /**
+     * Initializes the FastGhostMouse as a secondary cursor that coexists with the system cursor.
+     *
+     * @param startX Initial X position
+     * @param startY Initial Y position
+     * @param scale  DPI scaling factor (e.g., 2 for 200%)
+     */
+    public void useAsSecondaryMouse(int startX, int startY, int scale) {
+        init(startX, startY);
+        setSystemCursorVisible(true);
+        captureSystemCursor(); // Capture real mouse look
+        show();
     }
 }
