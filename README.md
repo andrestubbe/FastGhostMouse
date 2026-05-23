@@ -1,4 +1,4 @@
-# FastGhostMouse — High-Performance Native Overlay Cursor for Java [v0.1.0]
+﻿# FastGhostMouse â€” High-Performance Native Overlay Cursor for Java [v0.1.0]
 
 **A lightweight, click-through native overlay module for the FastJava ecosystem. Visualize cursor paths and AI predictions with zero latency.**
 
@@ -18,10 +18,10 @@
 - [License](#license)
 
 ## Features
-- **🖱️ Ghost Cursor**: Hardware-accelerated, click-through overlay cursor.
-- **✨ Smooth Paths**: Native DirectX rendering for flicker-free path visualization.
-- **📦 Zero Latency**: Bypasses the Java Swing/AWT event thread.
-- **🚀 Click-Through**: Completely focus-agnostic native window.
+- **ðŸ–±ï¸ Ghost Cursor**: Hardware-accelerated, click-through overlay cursor.
+- **âœ¨ Smooth Paths**: Native DirectX rendering for flicker-free path visualization.
+- **ðŸ“¦ Zero Latency**: Bypasses the Java Swing/AWT event thread.
+- **ðŸš€ Click-Through**: Completely focus-agnostic native window.
 
 ## Quick Start
 
@@ -42,7 +42,7 @@ cd FastGhostMouse
 ### Option 1: Maven (Recommended)
 Add the JitPack repository and the dependencies to your `pom.xml`:
 
-`xml
+```xml
 <repositories>
     <repository>
         <id>jitpack.io</id>
@@ -57,6 +57,7 @@ Add the JitPack repository and the dependencies to your `pom.xml`:
         <artifactId>fastghostmouse</artifactId>
         <version>v0.1.0</version>
     </dependency>
+
     <!-- FastCore (Required Native Loader) -->
     <dependency>
         <groupId>com.github.andrestubbe</groupId>
@@ -64,19 +65,19 @@ Add the JitPack repository and the dependencies to your `pom.xml`:
         <version>v0.1.0</version>
     </dependency>
 </dependencies>
-`
+```
 
 ### Option 2: Gradle (via JitPack)
-`groovy
+```groovy
 repositories {
     maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    implementation 'com.github.andrestubbe:.1.0'
+    implementation 'com.github.andrestubbe:fastghostmouse:v0.1.0'
     implementation 'com.github.andrestubbe:fastcore:v0.1.0'
 }
-`
+```
 
 ### Option 3: Direct Download (No Build Tool)
 Download the latest JARs directly to add them to your classpath:
@@ -89,9 +90,9 @@ Download the latest JARs directly to add them to your classpath:
 
 
 ## License
-MIT License — See [LICENSE](LICENSE) for details.
+MIT License â€” See [LICENSE](LICENSE) for details.
 
 ---
-**Part of the FastJava Ecosystem** — *Making the JVM faster.*
+**Part of the FastJava Ecosystem** â€” *Making the JVM faster.*
 
 
