@@ -1,4 +1,4 @@
-﻿# FastGhostMouse â€” High-Performance Native Overlay Cursor for Java [v0.1.0]
+﻿# FastGhostMouse — High-Performance Native Overlay Cursor for Java [v0.1.0]
 
 **A lightweight, click-through native overlay module for the FastJava ecosystem. Visualize cursor paths and AI predictions with zero latency.**
 
@@ -18,10 +18,10 @@
 - [License](#license)
 
 ## Features
-- **ðŸ–±ï¸ Ghost Cursor**: Hardware-accelerated, click-through overlay cursor.
-- **âœ¨ Smooth Paths**: Native DirectX rendering for flicker-free path visualization.
-- **ðŸ“¦ Zero Latency**: Bypasses the Java Swing/AWT event thread.
-- **ðŸš€ Click-Through**: Completely focus-agnostic native window.
+- **🖱️ Ghost Cursor**: Hardware-accelerated, click-through overlay cursor.
+- **✨ Smooth Paths**: Native DirectX rendering for flicker-free path visualization.
+- **📦 Zero Latency**: Bypasses the Java Swing/AWT event thread.
+- **🚀 Click-Through**: Completely focus-agnostic native window.
 
 ## Quick Start
 
@@ -90,9 +90,9 @@ Download the latest JARs directly to add them to your classpath:
 
 
 ## License
-MIT License â€” See [LICENSE](LICENSE) for details.
+MIT License — See [LICENSE](LICENSE) for details.
 
 ---
-**Part of the FastJava Ecosystem** â€” *Making the JVM faster.*
+**Part of the FastJava Ecosystem** — *Making the JVM faster.*
 
 
