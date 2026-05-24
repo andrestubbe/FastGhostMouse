@@ -1,6 +1,4 @@
-﻿# FastGhostMouse — High-Performance Native Overlay Cursor for Java [v0.1.0]
-
-**A lightweight, click-through native overlay module for the FastJava ecosystem. Visualize cursor paths and AI predictions with zero latency.**
+﻿# FastGhostMouse v0.1.0 [ALPHA] — High-Performance Native Overlay Cursor for Java
 
 [![Status](https://img.shields.io/badge/status-v0.1.0-brightgreen.svg)](https://github.com/andrestubbe/FastGhostMouse/releases/tag/v0.1.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -8,9 +6,14 @@
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010+-lightgrey.svg)]()
 [![JitPack](https://img.shields.io/badge/JitPack-ready-green.svg)](https://jitpack.io/#andrestubbe)
 
----
+**A lightweight, click-through native overlay module for the FastJava ecosystem. Visualize cursor paths and AI predictions with zero latency.**
 
 **FastGhostMouse** provides a high-performance, transparent native overlay for visual feedback. Built for bot visualization, UI debugging, and AI-driven cursor path prediction.
+
+[![FastKeyboard Showcase](docs/screenshot.png)](https://www.youtube.com/watch?v=BZsqQl7WqWk)
+
+---
+
 
 ## Table of Contents
 - [Features](#features)
