@@ -17,6 +17,7 @@ visualization, UI debugging, and AI-driven cursor path prediction.
 ---
 ## Table of Contents
 
+- [Quick Start](#quick-start)
 - [Features](#features)
 - [Quick Start](#quick-start)
 - [Installation](#installation)
