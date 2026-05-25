@@ -16,7 +16,7 @@ visualization, UI debugging, and AI-driven cursor path prediction.
 
 ---
 
-[![FastKeyboard Showcase](docs/screenshot.png)](https://www.youtube.com/watch?v=BZsqQl7WqWk)
+[![FastKeyboard Showcase](docs/screenshot.png)](https://www.youtube.com/watch?v=9zGz6Sdnu-c)
 
 ---
 ## Table of Contents
