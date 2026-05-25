@@ -15,13 +15,29 @@ visualization, UI debugging, and AI-driven cursor path prediction.
 [![FastKeyboard Showcase](docs/screenshot.png)](https://www.youtube.com/watch?v=BZsqQl7WqWk)
 
 ---
-
 ## Table of Contents
 
 - [Features](#features)
 - [Quick Start](#quick-start)
 - [Installation](#installation)
 - [License](#license)
+
+---
+
+## Quick Start
+
+```java
+import fastghostmouse.FastGhostMouse;
+
+public class Example {
+    public static void main(String[] args) {
+        // TODO
+    }
+}
+```
+
+---
+
 
 ## Features
 
