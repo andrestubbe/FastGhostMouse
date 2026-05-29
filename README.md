@@ -35,19 +35,8 @@ visualization, UI debugging, and AI-driven cursor path prediction.
 import fastghostmouse.FastGhostMouse;
 
 public class Example {
-    public static void main(String[] args) throws InterruptedException {
-        // Initialize the transparent overlay
-        FastGhostMouse ghost = new FastGhostMouse();
-        ghost.useAsSecondaryMouse(100, 100, 1.0f);
-        
-        // Attach a dynamic text label directly to the cursor
-        ghost.setStatusText("AI is clicking...");
-        
-        // Smoothly animate the cursor to screen coordinates X:800, Y:450
-        ghost.moveTo(800, 450);
-        
-        Thread.sleep(3000); // Keep it visible for a moment
-        ghost.dispose();
+    public static void main(String[] args) {
+        // TODO
     }
 }
 ```
@@ -123,11 +112,9 @@ MIT License — See [LICENSE](LICENSE) file for details.
 
 ## Related Projects
 
-- [FastTween](https://github.com/andrestubbe/FastTween) — Zero overhead pool-based tweening
-- [FastAnimation](https://github.com/andrestubbe/FastAnimation) — Zero overhead timeline orchestration
-- [FastDWM](https://github.com/andrestubbe/FastDWM) — Native Desktop Window Manager API
-- [FastCore](https://github.com/andrestubbe/FastCore) — Native JNI Loader and Utilities
+- [FastFileIndex](https://github.com/andrestubbe/FastFileIndex) — Ultra-fast filesystem scanner
 - [FastTheme](https://github.com/andrestubbe/FastTheme) — High-performance native window styling
+- [FastThumb](https://github.com/andrestubbe/FastThumb) — Native Shell Image Engine
 
 ---
 
