@@ -1,4 +1,4 @@
-﻿# FastGhostMouse v0.1.0 [ALPHA] — High-Performance Native Overlay Cursor for Java
+# FastGhostMouse v0.1.0 [ALPHA] — High-Performance Native Overlay Cursor for Java
 
 [![Status](https://img.shields.io/badge/status-v0.1.0-brightgreen.svg)](https://github.com/andrestubbe/FastGhostMouse/releases/tag/v0.1.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -35,8 +35,19 @@ visualization, UI debugging, and AI-driven cursor path prediction.
 import fastghostmouse.FastGhostMouse;
 
 public class Example {
-    public static void main(String[] args) {
-        // TODO
+    public static void main(String[] args) throws InterruptedException {
+        // Initialize the transparent overlay
+        FastGhostMouse ghost = new FastGhostMouse();
+        ghost.useAsSecondaryMouse(100, 100, 1.0f);
+        
+        // Attach a dynamic text label directly to the cursor
+        ghost.setStatusText("AI is clicking...");
+        
+        // Smoothly animate the cursor to screen coordinates X:800, Y:450
+        ghost.moveTo(800, 450);
+        
+        Thread.sleep(3000); // Keep it visible for a moment
+        ghost.dispose();
     }
 }
 ```
@@ -112,9 +123,11 @@ MIT License — See [LICENSE](LICENSE) file for details.
 
 ## Related Projects
 
-- [FastFileIndex](https://github.com/andrestubbe/FastFileIndex) — Ultra-fast filesystem scanner
+- [FastTween](https://github.com/andrestubbe/FastTween) — Zero overhead pool-based tweening
+- [FastAnimation](https://github.com/andrestubbe/FastAnimation) — Zero overhead timeline orchestration
+- [FastDWM](https://github.com/andrestubbe/FastDWM) — Native Desktop Window Manager API
+- [FastCore](https://github.com/andrestubbe/FastCore) — Native JNI Loader and Utilities
 - [FastTheme](https://github.com/andrestubbe/FastTheme) — High-performance native window styling
-- [FastThumb](https://github.com/andrestubbe/FastThumb) — Native Shell Image Engine
 
 ---
 
