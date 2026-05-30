@@ -1,11 +1,12 @@
-package fastghostmouse;
+package fastghostmouse.demo;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import fasttheme.FastTheme;
+import fastghostmouse.FastGhostMouse;
 
-public class FastGhostMouseDemo2 {
+public class Demo {
 
     // Window state
     private static volatile int winX, winY;
@@ -133,7 +134,7 @@ public class FastGhostMouseDemo2 {
         // Start GhostMouse
         FastGhostMouse ghost = new FastGhostMouse();
         ghost.setSmoothing(0.15f);
-        // Zentriere die Sprechblase über der Maus (Bild ist 64px breit, Mitte ist bei -32)
+        // Zentriere die Sprechblase Ã¼ber der Maus (Bild ist 64px breit, Mitte ist bei -32)
         ghost.setTextOffset(-32, -35);
 
         int parkX = winX - 100;
@@ -171,9 +172,9 @@ public class FastGhostMouseDemo2 {
 
                 if (dist < 20 && !wrongSize) continue;
 
-                // Erhöhe den Timeout auf 1500ms! Da die Titelleiste vom Windows-Betriebssystem verwaltet wird,
+                // ErhÃ¶he den Timeout auf 1500ms! Da die Titelleiste vom Windows-Betriebssystem verwaltet wird,
                 // sendet Java kein "mouseReleased" Event beim Loslassen der nativen Titelleiste.
-                // Der Bot wartet nun 1,5 Sekunden, nachdem du aufhörst das Fenster zu bewegen.
+                // Der Bot wartet nun 1,5 Sekunden, nachdem du aufhÃ¶rst das Fenster zu bewegen.
                 if (System.currentTimeMillis() - lastUserAction < 1500) continue;
 
                 botActive = true;
@@ -323,3 +324,4 @@ public class FastGhostMouseDemo2 {
         ghost.setTextImage(img);
     }
 }
+
