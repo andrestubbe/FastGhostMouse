@@ -111,6 +111,7 @@ public class Demo {
         FastTheme.setTitleBarDarkMode(hwnd, true);
         FastTheme.setTitleBarColor(hwnd, 0, 0, 0);
         FastTheme.setTitleBarTextColor(hwnd, 255, 255, 255);
+        FastTheme.setWindowTransparency(hwnd, 224);
 
         frame.setVisible(true);
 

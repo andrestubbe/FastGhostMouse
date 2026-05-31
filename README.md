@@ -14,18 +14,35 @@ predictions with zero latency.**
 **FastGhostMouse** provides a high-performance, transparent native overlay for visual feedback. Built for bot
 visualization, UI debugging, and AI-driven cursor path prediction.
 
----
+[**Watch the Demo**](https://www.youtube.com/watch?v=4C6fNPwXHEs&list=PL-mASGDMkCUqJ0bXAJP28ykqPP9RqMMsA&index=19) 
 
-[![FastKeyboard Showcase](docs/screenshot.png)](https://www.youtube.com/watch?v=cTas4WZ-Qc4)
+[![FastKeyboard Showcase](docs/screenshot.png)](https://www.youtube.com/watch?v=4C6fNPwXHEs&list=PL-mASGDMkCUqJ0bXAJP28ykqPP9RqMMsA&index=19)
 
 ---
 ## Table of Contents
 
+- [Why FastGhostMouse?](#why-fastghostmouse)
 - [Quick Start](#quick-start)
 - [Features](#features)
 - [Quick Start](#quick-start)
 - [Installation](#installation)
 - [License](#license)
+
+---
+
+## Why FastGhostMouse?
+
+When building automation bots, AI models, or testing frameworks, visualizing what the software is actually doing is one of the hardest challenges. Standard Java solutions for drawing on the screen suffer from severe limitations:
+
+- **The Focus Stealing Problem**: Standard undecorated `JFrame` overlays often steal window focus from the target application, immediately breaking the bot's interactions.
+- **Heavy Rendering Pipelines**: Relying on full-blown UI frameworks to draw a simple cursor trail consumes massive CPU/GPU resources, degrading the performance of the game or app you are trying to automate.
+- **Input Blocking**: Most overlay solutions accidentally intercept mouse clicks or keyboard events, preventing the user (or the bot) from interacting with the UI beneath the overlay.
+
+**FastGhostMouse** bypasses these limitations by hooking directly into the Windows OS rendering pipeline:
+
+- **True Click-Through (`WS_EX_TRANSPARENT`)**: Built on native JNI bindings, the overlay is mathematically invisible to mouse and keyboard events. You can click right through it.
+- **Zero-Focus Disruption (`WS_EX_NOACTIVATE`)**: The overlay is guaranteed to never steal focus from your active game or application.
+- **Featherweight Footprint**: Optimized to draw simple geometry (like an AI cursor trail or prediction nodes) with near-zero latency and negligible CPU cost.
 
 ---
 
@@ -35,8 +52,21 @@ visualization, UI debugging, and AI-driven cursor path prediction.
 import fastghostmouse.FastGhostMouse;
 
 public class Example {
-    public static void main(String[] args) {
-        // TODO
+    public static void main(String[] args) throws Exception {
+        FastGhostMouse ghost = new FastGhostMouse();
+        
+        // 1. Initialize and spawn the click-through cursor at screen center
+        ghost.useAsSecondaryMouse(960, 540, 0);
+        
+        // 2. Smoothly animate the cursor to a new location
+        // The internal engine calculates the delta time and interpolates the movement
+        ghost.moveTo(1500, 200);
+        
+        Thread.sleep(1000);
+        
+        // 3. Move again with a customized smoothing factor
+        ghost.setSmoothing(0.05f); // Slower, heavier movement
+        ghost.moveTo(100, 800);
     }
 }
 ```
@@ -66,6 +96,7 @@ Add the JitPack repository and the dependencies to your `pom.xml`:
         <url>https://jitpack.io</url>
     </repository>
 </repositories>
+
 <dependencies>
    <dependency>
        <groupId>com.github.andrestubbe</groupId>
@@ -86,6 +117,7 @@ Add the JitPack repository and the dependencies to your `pom.xml`:
 repositories {
     maven { url 'https://jitpack.io' }
 }
+
 dependencies {
     implementation 'com.github.andrestubbe:fastghostmouse:v0.1.0'
     implementation 'com.github.andrestubbe:fastcore:v0.1.0'
@@ -96,11 +128,36 @@ dependencies {
 
 Download the latest JARs directly to add them to your classpath:
 
-1. 📦 *
-   *[fastghostmouse-v0.1.0.jar](https://github.com/andrestubbe/FastGhostMouse/releases/download/v0.1.0/fastghostmouse-v0.1.0.jar)
-   ** (The Core Library)
-2. ⚙️ **[fastcore-v0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/v0.1.0/fastcore-v0.1.0.jar)** (
-   The Mandatory Native Loader)
+1. 📦 **[fastghostmouse-v0.1.0.jar](https://github.com/andrestubbe/FastGhostMouse/releases/download/v0.1.0/fastghostmouse-v0.1.0.jar)** (The Core Library)
+2. 📦 **[fastcore-v0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/v0.1.0/fastcore-v0.1.0.jar)** (The Mandatory Native JNI Loader)
+
+---
+
+## Documentation
+
+* **[COMPILE.md](COMPILE.md)**: Full compilation guide (Maven Build Setup).
+* **[REFERENCE.md](REFERENCE.md)**: Exhaustive catalog of timeline strategies and engine architecture.
+* **[PHILOSOPHIE.md](PHILOSOPHIE.md)**: Zero-allocation and low-overhead processing designs.
+* **[ROADMAP.md](ROADMAP.md)**: Planned milestone features and performance extensions.
+
+---
+
+## Platform Support
+
+| Platform      | Status            |
+|---------------|-------------------|
+| Windows 10/11 | ✅ Fully Supported |
+| Linux         | 🚧 Planned        |
+| macOS         | 🚧 Planned        |
+
+---
+
+## Documentation
+
+* **[COMPILE.md](COMPILE.md)**: Full compilation guide (MSVC C++17 build chain + JNI Setup).
+* **[REFERENCE.md](REFERENCE.md)**: Exhaustive catalog of native overlay features and click-through mechanics.
+* **[PHILOSOPHIE.md](PHILOSOPHIE.md)**: Zero-latency rendering and focus-agnostic processing designs.
+* **[ROADMAP.md](ROADMAP.md)**: Planned milestone features and performance extensions.
 
 ---
 
