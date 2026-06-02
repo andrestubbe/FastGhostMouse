@@ -135,10 +135,10 @@ Download the latest JARs directly to add them to your classpath:
 
 ## Documentation
 
-* **[COMPILE.md](COMPILE.md)**: Full compilation guide (Maven Build Setup).
-* **[REFERENCE.md](REFERENCE.md)**: Exhaustive catalog of timeline strategies and engine architecture.
-* **[PHILOSOPHIE.md](PHILOSOPHIE.md)**: Zero-allocation and low-overhead processing designs.
-* **[ROADMAP.md](ROADMAP.md)**: Planned milestone features and performance extensions.
+* **[COMPILE.md](docs/COMPILE.md)**: Full compilation guide (Maven Build Setup).
+* **[REFERENCE.md](docs/REFERENCE.md)**: Exhaustive catalog of timeline strategies and engine architecture.
+* **[PHILOSOPHIE.md](docs/PHILOSOPHIE.md)**: Zero-allocation and low-overhead processing designs.
+* **[ROADMAP.md](docs/ROADMAP.md)**: Planned milestone features and performance extensions.
 
 ---
 
@@ -154,10 +154,10 @@ Download the latest JARs directly to add them to your classpath:
 
 ## Documentation
 
-* **[COMPILE.md](COMPILE.md)**: Full compilation guide (MSVC C++17 build chain + JNI Setup).
-* **[REFERENCE.md](REFERENCE.md)**: Exhaustive catalog of native overlay features and click-through mechanics.
-* **[PHILOSOPHIE.md](PHILOSOPHIE.md)**: Zero-latency rendering and focus-agnostic processing designs.
-* **[ROADMAP.md](ROADMAP.md)**: Planned milestone features and performance extensions.
+* **[COMPILE.md](docs/COMPILE.md)**: Full compilation guide (MSVC C++17 build chain + JNI Setup).
+* **[REFERENCE.md](docs/REFERENCE.md)**: Exhaustive catalog of native overlay features and click-through mechanics.
+* **[PHILOSOPHIE.md](docs/PHILOSOPHIE.md)**: Zero-latency rendering and focus-agnostic processing designs.
+* **[ROADMAP.md](docs/ROADMAP.md)**: Planned milestone features and performance extensions.
 
 ---
 
