@@ -1,4 +1,4 @@
-﻿# FastGhostMouse v0.1.0 [ALPHA] â€” High-Performance Native Overlay Cursor for Java
+# FastGhostMouse v0.1.0 [ALPHA] — High-Performance Native Overlay Cursor for Java
 
 [![Status](https://img.shields.io/badge/status-v0.1.0-brightgreen.svg)](https://github.com/andrestubbe/FastGhostMouse/releases/tag/v0.1.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -8,7 +8,7 @@
 
 ---
 
-**âš¡ A lightweight, click-through native overlay module for the FastJava ecosystem. Visualize cursor paths and AI
+**⚡ A lightweight, click-through native overlay module for the FastJava ecosystem. Visualize cursor paths and AI
 predictions with zero latency.**
 
 **FastGhostMouse** provides a high-performance, transparent native overlay for visual feedback. Built for bot
@@ -76,10 +76,10 @@ public class Example {
 
 ## Features
 
-- **ðŸ–±ï¸ Ghost Cursor**: Hardware-accelerated, click-through overlay cursor.
-- **âœ¨ Smooth Paths**: Native DirectX rendering for flicker-free path visualization.
-- **ðŸ“¦ Zero Latency**: Bypasses the Java Swing/AWT event thread.
-- **ðŸš€ Click-Through**: Completely focus-agnostic native window.
+- **🖱️ Ghost Cursor**: Hardware-accelerated, click-through overlay cursor.
+- **✨ Smooth Paths**: Native DirectX rendering for flicker-free path visualization.
+- **📦 Zero Latency**: Bypasses the Java Swing/AWT event thread.
+- **🚀 Click-Through**: Completely focus-agnostic native window.
 
 ---
 
@@ -128,8 +128,8 @@ dependencies {
 
 Download the latest JARs directly to add them to your classpath:
 
-1. ðŸ“¦ **[fastghostmouse-v0.1.0.jar](https://github.com/andrestubbe/FastGhostMouse/releases/download/v0.1.0/fastghostmouse-v0.1.0.jar)** (The Core Library)
-2. ðŸ“¦ **[fastcore-v0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/v0.1.0/fastcore-v0.1.0.jar)** (The Mandatory Native JNI Loader)
+1. 📦 **[fastghostmouse-v0.1.0.jar](https://github.com/andrestubbe/FastGhostMouse/releases/download/v0.1.0/fastghostmouse-v0.1.0.jar)** (The Core Library)
+2. 📦 **[fastcore-v0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/v0.1.0/fastcore-v0.1.0.jar)** (The Mandatory Native JNI Loader)
 
 ---
 
@@ -137,7 +137,7 @@ Download the latest JARs directly to add them to your classpath:
 
 * **[COMPILE.md](docs/COMPILE.md)**: Full compilation guide (Maven Build Setup).
 * **[REFERENCE.md](docs/REFERENCE.md)**: Exhaustive catalog of timeline strategies and engine architecture.
-* **[PHILOSOPHIE.md](docs/PHILOSOPHIE.md)**: Zero-allocation and low-overhead processing designs.
+* **[PHILOSOPHY.md](docs/PHILOSOPHY.md)**: Zero-allocation and low-overhead processing designs.
 * **[ROADMAP.md](docs/ROADMAP.md)**: Planned milestone features and performance extensions.
 
 ---
@@ -146,9 +146,9 @@ Download the latest JARs directly to add them to your classpath:
 
 | Platform      | Status            |
 |---------------|-------------------|
-| Windows 10/11 | âœ… Fully Supported |
-| Linux         | ðŸš§ Planned        |
-| macOS         | ðŸš§ Planned        |
+| Windows 10/11 | ✅ Fully Supported |
+| Linux         | 🚧 Planned        |
+| macOS         | 🚧 Planned        |
 
 ---
 
@@ -156,25 +156,25 @@ Download the latest JARs directly to add them to your classpath:
 
 * **[COMPILE.md](docs/COMPILE.md)**: Full compilation guide (MSVC C++17 build chain + JNI Setup).
 * **[REFERENCE.md](docs/REFERENCE.md)**: Exhaustive catalog of native overlay features and click-through mechanics.
-* **[PHILOSOPHIE.md](docs/PHILOSOPHIE.md)**: Zero-latency rendering and focus-agnostic processing designs.
+* **[PHILOSOPHY.md](docs/PHILOSOPHY.md)**: Zero-latency rendering and focus-agnostic processing designs.
 * **[ROADMAP.md](docs/ROADMAP.md)**: Planned milestone features and performance extensions.
 
 ---
 
 ## License
 
-MIT License â€” See [LICENSE](LICENSE) file for details.
+MIT License — See [LICENSE](LICENSE) file for details.
 
 ---
 
 ## Related Projects
 
-- [FastFileIndex](https://github.com/andrestubbe/FastFileIndex) â€” Ultra-fast filesystem scanner
-- [FastTheme](https://github.com/andrestubbe/FastTheme) â€” High-performance native window styling
-- [FastThumb](https://github.com/andrestubbe/FastThumb) â€” Native Shell Image Engine
+- [FastFileIndex](https://github.com/andrestubbe/FastFileIndex) — Ultra-fast filesystem scanner
+- [FastTheme](https://github.com/andrestubbe/FastTheme) — High-performance native window styling
+- [FastThumb](https://github.com/andrestubbe/FastThumb) — Native Shell Image Engine
 
 ---
 
-**Part of the FastJava Ecosystem** â€” *Making the JVM faster. Small package. Maximum speed. Zero bloat. ðŸš€ðŸ“‹*
+**Part of the FastJava Ecosystem** — *Making the JVM faster. Small package. Maximum speed. Zero bloat. 🚀📋*
 
 
