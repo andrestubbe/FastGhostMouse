@@ -7,7 +7,7 @@
 
     <groupId>com.github.andrestubbe</groupId>
     <artifactId>FastGhostMouse</artifactId>
-    <version>v0.1.0</version>
+    <version>0.1.0</version>
     <packaging>jar</packaging>
 
     <name>fastghostmouse</name>
@@ -31,32 +31,32 @@
         <dependency>
             <groupId>com.github.andrestubbe</groupId>
             <artifactId>FastCore</artifactId>
-            <version>v0.1.0</version>
+            <version>0.1.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.andrestubbe</groupId>
             <artifactId>FastOverlay</artifactId>
-            <version>v0.1.0</version>
+            <version>0.1.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.andrestubbe</groupId>
             <artifactId>FastRobot</artifactId>
-            <version>v0.1.0</version>
+            <version>0.1.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.andrestubbe</groupId>
             <artifactId>FastTheme</artifactId>
-            <version>v0.1.0</version>
+            <version>0.1.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.andrestubbe</groupId>
             <artifactId>FastTween</artifactId>
-            <version>v0.1.0</version>
+            <version>0.1.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.andrestubbe</groupId>
             <artifactId>FastAnimation</artifactId>
-            <version>v0.1.0</version>
+            <version>0.1.0</version>
         </dependency>
     </dependencies>
 
