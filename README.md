@@ -19,33 +19,6 @@ visualization, UI debugging, and AI-driven cursor path prediction.
 [![FastKeyboard Showcase](docs/screenshot.png)](https://www.youtube.com/watch?v=VbJ62zXcASs&list=PL-mASGDMkCUqJ0bXAJP28ykqPP9RqMMsA&index=19)
 
 ---
-## Table of Contents
-
-- [Why FastGhostMouse?](#why-fastghostmouse)
-- [Quick Start](#quick-start)
-- [Features](#features)
-- [Quick Start](#quick-start)
-- [Installation](#installation)
-- [License](#license)
-
----
-
-## Why FastGhostMouse?
-
-When building automation bots, AI models, or testing frameworks, visualizing what the software is actually doing is one of the hardest challenges. Standard Java solutions for drawing on the screen suffer from severe limitations:
-
-- **The Focus Stealing Problem**: Standard undecorated `JFrame` overlays often steal window focus from the target application, immediately breaking the bot's interactions.
-- **Heavy Rendering Pipelines**: Relying on full-blown UI frameworks to draw a simple cursor trail consumes massive CPU/GPU resources, degrading the performance of the game or app you are trying to automate.
-- **Input Blocking**: Most overlay solutions accidentally intercept mouse clicks or keyboard events, preventing the user (or the bot) from interacting with the UI beneath the overlay.
-
-**FastGhostMouse** bypasses these limitations by hooking directly into the Windows OS rendering pipeline:
-
-- **True Click-Through (`WS_EX_TRANSPARENT`)**: Built on native JNI bindings, the overlay is mathematically invisible to mouse and keyboard events. You can click right through it.
-- **Zero-Focus Disruption (`WS_EX_NOACTIVATE`)**: The overlay is guaranteed to never steal focus from your active game or application.
-- **Featherweight Footprint**: Optimized to draw simple geometry (like an AI cursor trail or prediction nodes) with near-zero latency and negligible CPU cost.
-
----
-
 ## Quick Start
 
 ```java
@@ -70,6 +43,35 @@ public class Example {
     }
 }
 ```
+
+---
+
+---
+
+## Table of Contents
+
+- [Why FastGhostMouse?](#why-fastghostmouse)
+- [Quick Start](#quick-start)
+- [Features](#features)
+- [Quick Start](#quick-start)
+- [Installation](#installation)
+- [License](#license)
+
+---
+
+## Why FastGhostMouse?
+
+When building automation bots, AI models, or testing frameworks, visualizing what the software is actually doing is one of the hardest challenges. Standard Java solutions for drawing on the screen suffer from severe limitations:
+
+- **The Focus Stealing Problem**: Standard undecorated `JFrame` overlays often steal window focus from the target application, immediately breaking the bot's interactions.
+- **Heavy Rendering Pipelines**: Relying on full-blown UI frameworks to draw a simple cursor trail consumes massive CPU/GPU resources, degrading the performance of the game or app you are trying to automate.
+- **Input Blocking**: Most overlay solutions accidentally intercept mouse clicks or keyboard events, preventing the user (or the bot) from interacting with the UI beneath the overlay.
+
+**FastGhostMouse** bypasses these limitations by hooking directly into the Windows OS rendering pipeline:
+
+- **True Click-Through (`WS_EX_TRANSPARENT`)**: Built on native JNI bindings, the overlay is mathematically invisible to mouse and keyboard events. You can click right through it.
+- **Zero-Focus Disruption (`WS_EX_NOACTIVATE`)**: The overlay is guaranteed to never steal focus from your active game or application.
+- **Featherweight Footprint**: Optimized to draw simple geometry (like an AI cursor trail or prediction nodes) with near-zero latency and negligible CPU cost.
 
 ---
 
