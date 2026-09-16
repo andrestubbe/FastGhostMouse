@@ -1,26 +1,27 @@
 # The Philosophy of FastGhostMouse
 
 > [!IMPORTANT]
-> **"Visual Feedback without Interference. Zero Focus Theft. Absolute Click-Through."**
+> **"Visual feedback without interference: zero focus theft, absolute click-through, and zero AWT lag."**
 
-FastGhostMouse is built on the principle that automation bots, AI models, and testing frameworks desperately need visual debugging, but traditional Java UI solutions destroy the very environment they try to automate.
+FastGhostMouse is built on the fundamental principle that robotics bots, autonomous AI models, and testing frameworks require visual debugging, but traditional Java UI solutions degrade or destroy the target environment.
 
 ## Core Tenets
 
-1.  **Do Not Disturb the Host**
-    An automation overlay must never steal focus (`WS_EX_NOACTIVATE`) and must never block input (`WS_EX_TRANSPARENT`). If a bot clicks, the click must reach the target app, not the overlay.
+### 1. Do Not Disturb the Host
+An automation overlay must never steal window focus (`WS_EX_NOACTIVATE`) and must never capture or block mouse input (`WS_EX_TRANSPARENT`). When a user or bot clicks, the hardware event must reach the underlying window, not the overlay.
 
-2.  **Bypass the AWT/Swing EDT**
-    Standard Java windows (`JFrame`) are bound to the Event Dispatch Thread. Tying your bot's visual feedback to the heavy AWT pipeline guarantees micro-stutters and input lag. FastGhostMouse hooks directly into native Win32/DWM rendering to bypass Java's UI constraints entirely.
+### 2. Bypass the Java AWT Event Dispatch Thread (EDT)
+Standard Java UI components (`JFrame`, `JWindow`, `JDialog`) are bound to AWT's single-threaded EDT. Running high-frequency cursor animations on the EDT causes micro-stuttering, GC pressure, and input latency. FastGhostMouse runs its interpolation loop on a dedicated lightweight thread, driving DirectComposition native surfaces directly via `FastOverlay`.
 
-3.  **Visual Truth for AI**
-    When training or debugging AI agents, seeing the *exact* intended path of the cursor is critical. FastGhostMouse interpolates natively to show smooth trajectories and state changes, giving developers an instant "window into the AI's mind."
+### 3. Visual Transparency for Autonomous Agents
+When training or debugging AI agents, observing the exact planned and smoothed trajectory is critical. FastGhostMouse interpolates motion continuously and renders state tags, giving developers immediate visual inspection of AI intentions without interfering with vision capture pipelines like `FastScreen`.
 
-4.  **Blueprint Consistency**
-    As part of the **FastJava** ecosystem, FastGhostMouse adheres to a standardized architecture:
-    *   **Native Backend**: Direct C++ implementation via `FastOverlay`.
-    *   **Unified Loading**: Powered by `FastCore`.
-    *   **Premium Quality**: Built specifically for high-performance automation and autonomous agents.
+### 4. Ecosystem Synergy
+FastGhostMouse is designed to compose cleanly with the FastJava substrate:
+* **Render Pipeline**: Built directly on `FastOverlay` for DirectComposition transparency.
+* **Input Injection**: Integrates with `FastRobot` for native Win32 `SendInput` automation.
+* **JNI Substrate**: Native libraries resolved and loaded seamlessly via `FastCore`.
 
 ---
-**❤️ FastGhostMouse — Powering the next generation of Native Java.**
+
+Part of the **FastJava** ecosystem. Clean architectures, zero EDT lag, maximum speed.

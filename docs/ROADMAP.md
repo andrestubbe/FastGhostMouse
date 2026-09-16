@@ -1,24 +1,24 @@
-# FastGhostMouse Roadmap 🗺️
+# FastGhostMouse Roadmap
 
-**Vision:** To provide the fastest possible native primitives for mouse input by aggressively bypassing bottlenecks in standard Java.
+**Vision:** High-performance, zero-latency ghost cursor and AI trajectory visualization for the JVM.
 
-## 🟢 v0.1.0: Initial Release (Current)
-- [x] **Core Native Engine**: Basic JNI implementation.
-- [x] **Blueprint Standards**: README, Reference, and Philosophy integration.
-- [ ] **Basic Performance Suite**: Initial benchmarks vs standard Java.
+## Current Milestone: v0.1.0 (Released)
+- [x] Standardized FastJava ecosystem architecture.
+- [x] DirectComposition GPU overlay integration via `FastOverlay`.
+- [x] Native hardware cursor capture and dynamic state labeling.
+- [x] Smooth physics-based cursor motion interpolation.
+- [x] Official JMH benchmark suite measuring throughput.
+- [x] Interactive window-repositioning demo (`examples/Demo`).
 
-## 🟡 v0.2.0: Optimization Phase
-- [ ] **SIMD Acceleration**: Implement AVX2/SSE4.2 paths for core loops.
-- [ ] **Software Prefetching**: Optimize memory access patterns.
-- [ ] **Alignment Enforcement**: Ensure zero-penalty memory boundaries.
+## Milestone: v0.2.0 (Performance & Vector Trails)
+- [ ] Hardware-accelerated motion trails (spline path drawing via Direct2D).
+- [ ] Multi-cursor support for parallel agent visualization.
+- [ ] Low-overhead coordinate ring buffer for telemetry recording.
 
-## 🟠 v0.5.0: Platform & Logic Expansion
-- [ ] **ARM NEON Port**: Parity for Apple Silicon/Mobile.
-- [ ] **Advanced Features**: Multi-threaded paths and complex batch operations.
-
-## 🔴 v1.0.0: Production Hardening
-- [ ] **Full Stability Audit**: Long-run stress testing.
-- [ ] **Enterprise Support**: NUMA-awareness and Large Pages support.
+## Milestone: v0.3.0 (Cross-Platform Foundations)
+- [ ] Linux X11 Composite & Wayland transparent subsurface prototypes.
+- [ ] macOS Metal-backed click-through window implementation.
 
 ---
-**Focus:** Performance is our USP. We optimize where Java stops.
+
+Part of the **FastJava** ecosystem. Clean architectures, zero EDT lag, maximum speed.
